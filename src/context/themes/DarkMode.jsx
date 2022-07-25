@@ -1,8 +1,9 @@
 //@ts-check
-import React from "react";
-import "./DarkMode.scss";
+import React, { createContext, useState } from "react";
 
-export const DarkMode = () => {
+export const DarkMode = createContext([]);
+export const DarkModeProvider = ({ children }) => {
+  const [iconSun, setIconSun] = useState(true);
   let clickedClass = "clicked";
   const body = document.body;
   const lightTheme = "light";
@@ -20,6 +21,7 @@ export const DarkMode = () => {
   }
 
   const switchTheme = (e) => {
+    setIconSun(!iconSun)
     if (theme === darkTheme) {
       body.classList.replace(darkTheme, lightTheme);
       e.target.classList.remove(clickedClass);
@@ -34,12 +36,6 @@ export const DarkMode = () => {
   };
 
   return (
-    <button
-      className={theme === "dark" ? clickedClass : ""}
-      id="darkMode"
-      onClick={(e) => switchTheme(e)}
-    >
-      DarkMode
-    </button>
+    <DarkMode.Provider value={{ switchTheme, iconSun }}>{children}</DarkMode.Provider>
   );
 };
