@@ -1,3 +1,8 @@
+html{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
@@ -5,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;;
   background-color: var(--background-color);
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
 code {
@@ -17,14 +22,18 @@ code {
   --white: rgb(230, 229, 226);
   --navBgLight: rgb(228, 228, 228);
   --navBgDark: rgb(0, 0, 0);
+  --shadowLight: rgba(0, 0, 0, 0.115);
+  --shadowDark: rgba(255, 255, 255, 0.115);
 }
 body.light {
   --background-color: var(--white);
   --text-color: var(--blue);
   --navBg: var(--navBgLight);
+  --shadow: var(--shadowLight);
 }
 body.dark {
   --background-color: var(--blue);
   --text-color: var(--white);
   --navBg: var(--navBgDark);
+  --shadow: var(--shadowDark);
 }
